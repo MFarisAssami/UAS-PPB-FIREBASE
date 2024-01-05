@@ -1,4 +1,5 @@
-import 'package:app/view/home_page.dart';
+import 'package:app/nav/bottom_nav.dart';
+//import 'package:app/view/home_page.dart';
 import 'package:app/view/register_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
           await _auth.signInWithEmailAndPassword(
               email: email, password: password);
           navigator.pushReplacement(MaterialPageRoute(builder: (context) {
-            return const HomePage();
+            return const Dashboard_page();
           }));
         }
       } catch (e) {
@@ -135,20 +136,17 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ],
                   ),
+
+
                   ElevatedButton(
-                    //size
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 15),
-                    ),
-                    onPressed: login,
-                    child: const Text(
-                      'Login',
-                      style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Dashboard_page(),
+                            ));
+                      },
+                      child: Text('Login')),
                   const SizedBox(height: 10),
                 ],
               ),

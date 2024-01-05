@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "598366530994",
-    "project_id": "todo-list-21136",
-    "storage_bucket": "todo-list-21136.appspot.com"
+    "project_number": "371206469920",
+    "project_id": "beta-newtester",
+    "storage_bucket": "beta-newtester.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:598366530994:android:ee241483f947933860c8ab",
+        "mobilesdk_app_id": "1:371206469920:android:523d39813841267be83f45",
         "android_client_info": {
           "package_name": "com.example.app"
         }
@@ -15,7 +15,26 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCHqXTGdsx6lNRp3TsgWAN6QYCusiv5IDU"
+          "current_key": "AIzaSyDpvMYUO9vgDigaj-luVIQwXgBQaHHwEKk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371206469920:android:e707531ce68d2a01e83f45",
+        "android_client_info": {
+          "package_name": "com.example.percobaan"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpvMYUO9vgDigaj-luVIQwXgBQaHHwEKk"
         }
       ],
       "services": {

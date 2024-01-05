@@ -1,5 +1,6 @@
 import 'package:app/model/todo.dart';
-import 'package:app/view/login_page.dart';
+//import 'package:app/nav/bottom_nav_bar.dart';
+// import 'package:app/view/login_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -25,12 +26,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     CollectionReference todoCollection = _firestore.collection('Todos');
     final User? user = _auth.currentUser;
-    Future<void> _signOut() async {
-      await _auth.signOut();
-      runApp(new MaterialApp(
-        home: new LoginPage(),
-      ));
-    }
+
 
     Future<QuerySnapshot>? searchResultsFuture;
     Future<void> searchResult(String textEntered) async {
@@ -71,43 +67,10 @@ class _HomePageState extends State<HomePage> {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text('Todo List'),
-        centerTitle: true,
-        actions: [
-          IconButton(
-            icon: Icon(Icons.logout),
-            onPressed: () {
-              showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                  title: Text('Logout'),
-                  content: Text('Apakah anda yakin ingin logout?'),
-                  actions: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: Text('Tidak'),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        _signOut();
-                      },
-                      child: Text('Ya'),
-                    ),
-                  ],
-                ),
-              );
-            },
-          )
-        ],
-      ),
       body: Column(
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+            padding: EdgeInsets.symmetric(vertical: 50, horizontal: 10),
             child: TextField(
               decoration: InputDecoration(
                   labelText: 'Search',
@@ -170,22 +133,28 @@ class _HomePageState extends State<HomePage> {
             context: context,
             builder: (context) => AlertDialog(
               title: Text('Tambah Todo'),
-              content: SizedBox(
-                width: 200,
-                height: 100,
-                child: Column(
-                  children: [
-                    TextField(
-                      controller: _titleController,
-                      decoration: InputDecoration(hintText: 'Judul todo'),
+              content: SingleChildScrollView(
+                  child: SizedBox(
+                    width: 200,
+                    height: 200,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          TextField(
+                            controller: _titleController,
+                            decoration: InputDecoration(hintText: 'Judul todo'),
+                          ),
+                          TextField(
+                            controller: _descriptionController,
+                            decoration: InputDecoration(hintText: 'Deskripsi todo'),
+                          ),
+                        ],
+                      ),
                     ),
-                    TextField(
-                      controller: _descriptionController,
-                      decoration: InputDecoration(hintText: 'Deskripsi todo'),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
+
               actions: [
                 TextButton(
                   child: Text('Batalkan'),
@@ -208,3 +177,4 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+

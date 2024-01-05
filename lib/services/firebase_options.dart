@@ -17,13 +17,19 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -46,30 +52,11 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDJNW2Epr1KCgQtYLRYcEJTyr3J4Ex4HqY',
-    appId: '1:598366530994:web:4af433f5ec5e01f760c8ab',
-    messagingSenderId: '598366530994',
-    projectId: 'todo-list-21136',
-    authDomain: 'todo-list-21136.firebaseapp.com',
-    storageBucket: 'todo-list-21136.appspot.com',
-    measurementId: 'G-WLL26Y462S',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCHqXTGdsx6lNRp3TsgWAN6QYCusiv5IDU',
-    appId: '1:598366530994:android:ee241483f947933860c8ab',
-    messagingSenderId: '598366530994',
-    projectId: 'todo-list-21136',
-    storageBucket: 'todo-list-21136.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyC9SVAZaFbZogVWWRSJ_E_g9KV8LvTS-uQ',
-    appId: '1:598366530994:ios:e70adc6ef0440a7a60c8ab',
-    messagingSenderId: '598366530994',
-    projectId: 'todo-list-21136',
-    storageBucket: 'todo-list-21136.appspot.com',
-    iosBundleId: 'com.example.app',
+    apiKey: 'AIzaSyDpvMYUO9vgDigaj-luVIQwXgBQaHHwEKk',
+    appId: '1:371206469920:android:523d39813841267be83f45',
+    messagingSenderId: '371206469920',
+    projectId: 'beta-newtester',
+    storageBucket: 'beta-newtester.appspot.com',
   );
 }
