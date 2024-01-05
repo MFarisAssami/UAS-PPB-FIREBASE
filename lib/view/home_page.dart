@@ -67,7 +67,8 @@ class _HomePageState extends State<HomePage> {
     }
 
     return Scaffold(
-      body: Column(
+      body: ListView(
+        padding: EdgeInsets.all(8),
         children: [
           Padding(
             padding: EdgeInsets.symmetric(vertical: 50, horizontal: 10),
@@ -85,7 +86,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
           ),
-          Expanded(
+          Container(
             child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
                 stream: _searchController.text.isEmpty
                     ? _firestore
@@ -123,8 +124,9 @@ class _HomePageState extends State<HomePage> {
                           transaksiDocId: snapshot.data!.docs[index].id,
                         );
                       });
-                }),
+                },),
           ),
+          
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -177,4 +179,4 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
+//lalalala
